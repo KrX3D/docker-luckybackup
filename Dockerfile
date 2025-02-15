@@ -43,6 +43,9 @@ ENV UID=99
 ENV GID=100
 ENV DATA_PERM=770
 ENV USER="luckybackup"
+ENV AUTOBACKUP=true
+ENV AUTOSHUTDOWN=true
+ENV PROFILENAME=Default
 
 RUN mkdir $DATA_DIR && \
 	useradd -d $DATA_DIR -s /bin/bash $USER && \
