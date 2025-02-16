@@ -90,11 +90,13 @@ if [ "${AUTOBACKUP}" == "true" ]; then
         
         # Check for AUTOSHUTDOWN and power off if true
         if [ "${AUTOSHUTDOWN}" == "true" ]; then
-            echo "---Backup completed, shutting down the Docker container---"
+            echo "---Backup completed, shutting down the Docker container in 10 seconds for debugging---"
+            sleep 10
             kill -s SIGTERM 1
         fi
     else
-        echo "---Error: Profile ${PROFILENAME} not found! Skipping backup and shutting down---"
+        echo "---Error: Profile ${PROFILENAME} not found! Skipping backup and shutting down in 10 seconds for debugging---"
+        sleep 10
         kill -s SIGTERM 1
     fi
 else
