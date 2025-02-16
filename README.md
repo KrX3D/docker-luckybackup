@@ -17,6 +17,10 @@ LuckyBackup is a very user-friendly GUI backup program. It uses rsync as a backe
 | UMASK | Umask value for new created files | 0000 |
 | DATA_PERMS | Data permissions for config folder | 770 |
 
+| AUTOBACKUP | Enable automatic backup function | true |
+| AUTOSHUTDOWN | Enable automatic shutdown after backup | true |
+| PROFILENAME | Set the profile name for backups | default |
+
 ## Run example
 ```
 docker run --name luckyBackup -d \
@@ -25,6 +29,9 @@ docker run --name luckyBackup -d \
 	--env 'GID=100' \
 	--env 'UMASK=0000' \
 	--env 'DATA_PERMS=770' \
+	--env 'AUTOBACKUP=true' \
+	--env 'AUTOSHUTDOWN=true' \
+	--env 'PROFILENAME=default' \
 	--volume /mnt/cache/appdata/luckybackup:/luckybackup \
 	--volume /mnt/user/:/mnt/user \
 	ich777/luckybackup
@@ -43,6 +50,21 @@ All other platforms running Docker: create a environment variable `TURBOVNC_PARA
 ```
     --env 'TURBOVNC_PARAMS='
 ```
+
+## Important Note for AutoBackup Shutdown
+
+ If you want the autobackup function to be able to shut down the Docker container, you need to manually edit the container settings. Under the Advanced View, change the Extra Parameters from:
+```
+--restart=unless-stopped
+```
+to:
+```
+--restart=no
+```
+
+Otherwise, the container will restart after shutdown, preventing the intended behavior.
+
+
 
 This Docker was mainly edited for better use with Unraid, if you don't use Unraid you should definitely try it!
  
