@@ -53,7 +53,7 @@ All other platforms running Docker: create a environment variable `TURBOVNC_PARA
 
 ## Important Information for AutoBackup
 
- When first setting up the container, set AUTOBACKUP=false and start the container. This allows you to manually create and configure your backup tasks. After you have set up your tasks, you can enable AUTOBACKUP=true to allow automatic backups to run. Be sure the enter the correct profile name, or else this function is skipped
+ When first setting up the container, set AUTOBACKUP=false and start the container. This allows you to manually create and configure your backup tasks. After you have set up your tasks, you can enable AUTOBACKUP=true to allow automatic backups to run. Make sure to enter the correct profile name; otherwise, the function will be skipped.
 
 ## Important Note for AutoBackup Shutdown
 
