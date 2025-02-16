@@ -51,6 +51,10 @@ All other platforms running Docker: create a environment variable `TURBOVNC_PARA
     --env 'TURBOVNC_PARAMS='
 ```
 
+## Important Information for AutoBackup
+
+ When first setting up the container, set AUTOBACKUP=false and start the container. This allows you to manually create and configure your backup tasks. After you have set up your tasks, you can enable AUTOBACKUP=true to allow automatic backups to run. Be sure the enter the correct profile name, or else this function is skipped
+
 ## Important Note for AutoBackup Shutdown
 
  If you want the autobackup function to be able to shut down the Docker container, you need to manually edit the container settings. Under the Advanced View, change the Extra Parameters from:
@@ -64,7 +68,7 @@ to:
 
 Otherwise, the container will restart after shutdown, preventing the intended behavior.
 
-
+---
 
 This Docker was mainly edited for better use with Unraid, if you don't use Unraid you should definitely try it!
  
