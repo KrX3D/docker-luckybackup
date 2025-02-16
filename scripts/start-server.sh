@@ -81,6 +81,24 @@ echo "---Starting ssh daemon---"
 /usr/sbin/sshd
 sleep 2
 
-echo "---Starting luckyBackup---"
-cd ${DATA_DIR}
-/usr/bin/luckybackup
+# --- Starting luckyBackup ---
+if [ "${AUTOBACKUP}" == "true" ]; then
+    if [ -n "${PROFILENAME}" ] && [ -f "/luckybackup/.luckyBackup/profiles/${PROFILENAME}.profile" ]; then
+        echo "---Starting luckyBackup with profile ${PROFILENAME}---"
+        cd ${DATA_DIR}
+        /usr/bin/luckybackup --no-questions ${PROFILENAME}
+        
+        # Check for AUTOSHUTDOWN and power off if true
+        if [ "${AUTOSHUTDOWN}" == "true" ]; then
+            echo "---Backup completed, shutting down the Docker container---"
+            #poweroff
+        fi
+    else
+        echo "---Error: Profile ${PROFILENAME} not found! Skipping backup and shutting down---"
+        #poweroff
+    fi
+else
+    echo "---Starting luckyBackup without autobackup---"
+    cd ${DATA_DIR}
+    /usr/bin/luckybackup
+fi
