@@ -16,7 +16,6 @@ LuckyBackup is a very user-friendly GUI backup program. It uses rsync as a backe
 | GID | Group Identifier | 100 |
 | UMASK | Umask value for new created files | 0000 |
 | DATA_PERMS | Data permissions for config folder | 770 |
-
 | AUTOBACKUP | Enable automatic backup function | true |
 | AUTOSHUTDOWN | Enable automatic shutdown after backup | true |
 | PROFILENAME | Set the profile name for backups | default |
