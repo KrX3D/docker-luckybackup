@@ -67,6 +67,17 @@ to:
 
 Otherwise, the container will restart after shutdown, preventing the intended behavior.
 
+
+### Unraid - Docker settings
+
+| Advanced View -> Extra Parameters                                   			      |
+|---------------------------------------------------------------------------------------------|
+| ![Extra Parameters](./img/unraid_container_settings_extra_parameter.PNG "Extra Parameters") |
+
+| Variables - AUTOBACKUP, AUTOSHUTDOWN and PROFILENAME 		   	  |
+|-------------------------------------------------------------------------|
+| ![Variables](./img/unraid_container_Settings_variables.PNG "Variables") |
+ 
 ---
 
 This Docker was mainly edited for better use with Unraid, if you don't use Unraid you should definitely try it!
